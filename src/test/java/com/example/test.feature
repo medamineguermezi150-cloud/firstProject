@@ -12,7 +12,7 @@ Feature: cas de tests pour Users
     Given path '/users'
     When method Get
     Then status 200
-    And assert response.length >= 10
+    And match response.length == 10
   
   Scenario:Verifier le nom du premier user
     Given path '/users/1'

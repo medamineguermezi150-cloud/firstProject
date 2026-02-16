@@ -23,7 +23,6 @@
   </dependencies>
 
   <build>
-    <!-- CE BLOC EST INDISPENSABLE POUR KARATE -->
     <testResources>
         <testResource>
             <directory>src/test/java</directory>

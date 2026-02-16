@@ -7,7 +7,7 @@ public class AppTest {
     @Karate.Test
     Karate testAll() {
        
-        return Karate.run("test").relativeTo(getClass());
+        return Karate.run("Test").relativeTo(getClass());
     }
 }
 

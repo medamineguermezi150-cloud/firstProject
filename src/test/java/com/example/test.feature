@@ -13,3 +13,9 @@ Feature: cas de tests pour Users
     When method Get
     Then status 200
     And assert response.length >= 10
+  
+  Scenario:Verifier le nom du premier user
+    Given path '/users/1'
+    When method Get
+    Then status 200
+    And response.name="Leanne Graham"

@@ -8,11 +8,11 @@ Feature: cas de tests pour Users
     When method Get
     Then status 200
 
-  Scenario: Vérifier que le nombre d'utilisateurs est correct
-    Given path '/users'
-    When method Get
+  Scenario: Lire l'article numéro 1
+    Given path 'posts', '1'
+    When method GET
     Then status 200
-    And match response.length == 10
+    And match response.id == 1
   
   Scenario:Verifier le nom du premier user
     Given path '/users/1'

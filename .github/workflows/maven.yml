@@ -32,6 +32,8 @@ jobs:
       run: |
         sudo apt-get update
         sudo apt-get install -y jmeter
+    - name: Check JMeter version
+      run: jmeter --version
 
     - name: Run Performance Tests
       run: |

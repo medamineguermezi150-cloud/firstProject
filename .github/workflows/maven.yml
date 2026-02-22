@@ -39,5 +39,10 @@ jobs:
           -t performance-tests/test-load.jmx \
           -l results.jtl \
           -e -o report
+    - name: Upload Perforamnce Report
+      uses: actions/upload-artifact@v4
+      with:
+         name: jmeter-report
+         path: report
 
     

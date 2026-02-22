@@ -36,7 +36,7 @@ jobs:
     - name: Run Performance Tests
       run: |
           jmeter -n \
-          -t performance-tests/test-load.jmx \
+          -t PerformanceTest/Test.jmx \
           -l results.jtl \
           -e -o report
     - name: Upload Perforamnce Report

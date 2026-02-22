@@ -28,23 +28,25 @@ jobs:
         name: karate-reports
         path: target/karate-reports/
 
-    - name: Install JMeter
+    - name: Install JMeter 5.6.3
       run: |
-        sudo apt-get update
-        sudo apt-get install -y jmeter
-    - name: Check JMeter version
-      run: jmeter --version
+       wget https://archive.apache.org/dist/jmeter/binaries/apache-jmeter-5.6.3.tgz
+       tar -xzf apache-jmeter-5.6.3.tgz
+       mv apache-jmeter-5.6.3 jmeter
+
 
     - name: Run Performance Tests
       run: |
-          jmeter -n \
-          -t PerformanceTest/Test.jmx \
-          -l results.jtl \
-          -e -o report
-    - name: Upload Perforamnce Report
+       rm -rf report
+       ./jmeter/bin/jmeter -n \
+       -t PerformanceTest/Test.jmx \
+       -l results.jtl \
+       -e -o report
+
+    - name: Upload Performance Report
       uses: actions/upload-artifact@v4
       with:
-         name: jmeter-report
-         path: report
+       name: jmeter-report
+       path: report
 
     

@@ -28,6 +28,14 @@ jobs:
         name: karate-reports
         path: target/karate-reports/
 
+    - name: Send Karate Results to Jira Xray
+      if: success()
+      run: |
+        curl -H "Content-Type: text/xml" \
+        -u $JIRA_EMAIL:$JIRA_API_TOKEN \
+        --data @"target/surefire-reports/TEST-*.xml" \
+        "$JIRA_URL/rest/raven/1.0/import/execution/junit?projectKey=SCRUM&testExecutionKey=SCRUM-6"
+
     - name: Install JMeter 5.6.3
       run: |
        wget https://archive.apache.org/dist/jmeter/binaries/apache-jmeter-5.6.3.tgz

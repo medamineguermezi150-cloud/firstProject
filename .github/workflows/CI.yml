@@ -27,6 +27,9 @@ jobs:
       with:
         name: karate-reports
         path: target/karate-reports/
+    - name: Log workflow execution parameters
+      run: |
+        echo "execution_parameter:: $(echo '${{ toJson(github.event.inputs) }}' | jq -c .)"
 
 
 

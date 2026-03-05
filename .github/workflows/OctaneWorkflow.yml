@@ -1,4 +1,4 @@
-name: Octane Integration
+name: Octane Integratio
 on:
   pull_request:
     types: [opened, edited, closed, reopened]

@@ -5,8 +5,7 @@ on:
   workflow_run:
     workflows: [Java CI]
     types: [completed]
-env: 
-    NODE_TLS_REJECT_UNAUTHORIZED: 0
+
 jobs:
   octane_integration_job:
     runs-on: ubuntu-latest

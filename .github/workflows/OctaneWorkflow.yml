@@ -13,7 +13,7 @@ jobs:
     name: OctaneIntegration
     steps:
       - name: GitHub Actions ALM Octane Integration
-        uses: MicroFocus/alm-octane-github-actions-integration@v1
+        uses: MicroFocus/alm-octane-github-actions-integration
         id: gitHubActionsIntegration
         with:
 

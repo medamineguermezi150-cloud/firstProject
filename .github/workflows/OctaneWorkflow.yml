@@ -19,10 +19,7 @@ jobs:
           run-id: ${{ github.event.workflow_run.id }}
 
 
-      - name: List downloaded files
-        run: |
-              ls -la
-              find . -name "*.xml" -type f | sort    
+   
               
       - name: GitHub Actions ALM Octane Integration
         
@@ -38,8 +35,7 @@ jobs:
           githubToken: ${{secrets.GITHUB_TOKEN}}
 
           serverBaseUrl: https://github.com/medamineguermezi150-cloud/firstProject
-
-          ciServerId: 'medamineguermezi150-cloud/firstProject'  
+ 
           
           pipelineNamePattern: '${workflow_name}'
          

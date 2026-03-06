@@ -34,7 +34,7 @@ jobs:
           octaneClientSecret: ${{secrets.ALM_OCTANE_CLIENT_SECRET}}
           githubToken: ${{secrets.GITHUB_TOKEN}}
 
-          serverBaseUrl: https://github.com/medamineguermezi150-cloud/firstProject
+          serverBaseUrl: https://github.com
  
           
           pipelineNamePattern: '${workflow_name}'

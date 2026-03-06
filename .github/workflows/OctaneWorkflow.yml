@@ -26,7 +26,7 @@ jobs:
               
       - name: GitHub Actions ALM Octane Integration
         
-        uses: MicroFocus/alm-octane-github-actions-integration@main
+        uses: MicroFocus/alm-octane-github-actions-integration@v1.0
         id: gitHubActionsIntegration
         with:
 

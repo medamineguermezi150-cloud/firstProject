@@ -36,10 +36,9 @@ jobs:
           octaneWorkspace:   2001
           octaneClientId: ${{secrets.ALM_OCTANE_CLIENT_ID}}
           octaneClientSecret: ${{secrets.ALM_OCTANE_CLIENT_SECRET}}
-          githubToken: ${{secrets.GITHUB_TOKEN}}
+         
 
           serverBaseUrl: "https://github.com/medamineguermezi150-cloud/firstProject"
- 
           
 
          

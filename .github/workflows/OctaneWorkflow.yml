@@ -18,16 +18,6 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           run-id: ${{ github.event.workflow_run.id }}
           
-      - name: Debug Octane Connection
-        run: |
-         echo "Testing connection to Octane..."
-         curl -I "https://almoctane-eur.saas.microfocus.com/api/shared_spaces/646003/workspaces/1002/ci_servers" \
-         -u "${{secrets.ALM_OCTANE_CLIENT_ID}}:${{secrets.ALM_OCTANE_CLIENT_SECRET}}" \
-         -H "Accept: application/json"   
-      - name: Verify secrets exist
-        run: |
-          if [ -z "${{ secrets.ALM_OCTANE_CLIENT_ID }}" ]; then echo "Client ID missing"; else echo "Client ID OK"; fi
-          if [ -z "${{ secrets.ALM_OCTANE_CLIENT_SECRET }}" ]; then echo "Client Secret missing"; else echo "Client Secret OK"; fi
           
       - name: Check Karate reports
         run: |
@@ -43,7 +33,7 @@ jobs:
 
           octaneUrl: 'https://almoctane-eur.saas.microfocus.com'
           octaneSharedSpace: 646003
-          octaneWorkspace:   1002
+          octaneWorkspace:   2001
           octaneClientId: ${{secrets.ALM_OCTANE_CLIENT_ID}}
           octaneClientSecret: ${{secrets.ALM_OCTANE_CLIENT_SECRET}}
           githubToken: ${{secrets.GITHUB_TOKEN}}

@@ -17,7 +17,13 @@ jobs:
           name: karate-reports
           github-token: ${{ secrets.GITHUB_TOKEN }}
           run-id: ${{ github.event.workflow_run.id }}
-
+          
+      - name: Debug Octane Connection
+        run: |
+         echo "Testing connection to Octane..."
+         curl -I "https://almoctane-eur.saas.microfocus.com/api/shared_spaces/646003/workspaces/1002/ci_servers" \
+         -u "${{secrets.ALM_OCTANE_CLIENT_ID}}:${{secrets.ALM_OCTANE_CLIENT_SECRET}}" \
+         -H "Accept: application/json"   
 
    
               

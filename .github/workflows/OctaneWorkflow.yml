@@ -32,7 +32,7 @@ jobs:
       - name: Check Karate reports
         run: |
           echo "Listing report files"
-          find target -name "*.xml" || true   
+          find targets -name "*.xml" || true   
    
               
       - name: GitHub Actions ALM Octane Integration
@@ -42,8 +42,8 @@ jobs:
         with:
 
           octaneUrl: 'https://almoctane-eur.saas.microfocus.com'
-          octaneSharedSpace: 1002
-          octaneWorkspace: 646003
+          octaneSharedSpace: 646003
+          octaneWorkspace:   1002
           octaneClientId: ${{secrets.ALM_OCTANE_CLIENT_ID}}
           octaneClientSecret: ${{secrets.ALM_OCTANE_CLIENT_SECRET}}
           githubToken: ${{secrets.GITHUB_TOKEN}}

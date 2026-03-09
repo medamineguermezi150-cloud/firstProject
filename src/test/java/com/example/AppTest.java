@@ -15,4 +15,3 @@ public class AppTest {
         assertEquals(0, results.getFailCount(), results.getErrorMessages());
 }
 }
-

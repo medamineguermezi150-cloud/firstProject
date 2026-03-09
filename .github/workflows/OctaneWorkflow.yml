@@ -1,0 +1,45 @@
+name: Octane Integration
+on:
+  pull_request:
+    types: [opened, edited, closed, reopened]
+  workflow_run:
+    workflows: ["Java CI"]
+    types: [completed]
+
+jobs:
+  octane_integration_job:
+    runs-on: ubuntu-latest
+    name: OctaneIntegration
+    steps:
+      - name: Download test results from Java CI
+        uses: actions/download-artifact@v4
+        with:
+          name: karate-reports
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          run-id: ${{ github.event.workflow_run.id }}
+          
+          
+      - name: Check Karate reports
+        run: |
+          echo "Listing report files"
+          find targets -name "*.xml" || true   
+   
+              
+      - name: GitHub Actions ALM Octane Integration
+        
+        uses: MicroFocus/alm-octane-github-actions-integration@v1.0
+        id: gitHubActionsIntegration
+        with:
+          logLevel: '1'
+          octaneUrl: 'https://almoctane-eur.saas.microfocus.com'
+          octaneSharedSpace: 646003
+          octaneWorkspace:   1002
+          octaneClientId: ${{secrets.ALM_OCTANE_CLIENT_ID}}
+          octaneClientSecret: ${{secrets.ALM_OCTANE_CLIENT_SECRET}}
+          githubToken: ${{secrets.GITHUB_TOKEN}}
+
+          serverBaseUrl: "https://github.com/medamineguermezi150-cloud/firstProject"
+          
+          pipelineNamePattern: '${workflow_name}'
+         
+          unitTestResultsGlobPattern: "**/*.xml"

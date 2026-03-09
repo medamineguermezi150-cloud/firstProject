@@ -11,23 +11,9 @@ jobs:
     runs-on: ubuntu-latest
     name: OctaneIntegration
     steps:
-      - name: Download test results from Java CI
-        uses: actions/download-artifact@v4
-        with:
-          name: karate-reports
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          run-id: ${{ github.event.workflow_run.id }}
-          
-          
-      - name: Check Karate reports
-        run: |
-          echo "Listing report files"
-          find targets -name "*.xml" || true   
-   
-              
       - name: GitHub Actions ALM Octane Integration
         
-        uses: MicroFocus/alm-octane-github-actions-integration@v1.0
+        uses: MicroFocus/alm-octane-github-actions-integration@v25.2.1
         id: gitHubActionsIntegration
         with:
           logLevel: '1'
@@ -43,3 +29,19 @@ jobs:
           pipelineNamePattern: '${workflow_name}'
          
           unitTestResultsGlobPattern: "**/*.xml"
+
+      - name: Download test results from Java CI
+        uses: actions/download-artifact@v4
+        with:
+          name: karate-reports
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          run-id: ${{ github.event.workflow_run.id }}
+          
+          
+      - name: Check Karate reports
+        run: |
+          echo "Listing report files"
+          find targets -name "*.xml" || true   
+   
+              
+    

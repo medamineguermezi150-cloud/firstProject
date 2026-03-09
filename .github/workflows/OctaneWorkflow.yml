@@ -40,6 +40,6 @@ jobs:
 
           serverBaseUrl: "https://github.com/medamineguermezi150-cloud/firstProject"
           
-
+          pipelineNamePattern: '${workflow_name}'
          
           unitTestResultsGlobPattern: "**/*.xml"

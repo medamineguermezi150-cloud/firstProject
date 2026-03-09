@@ -30,7 +30,7 @@ jobs:
         uses: MicroFocus/alm-octane-github-actions-integration@v1.0
         id: gitHubActionsIntegration
         with:
-
+          logLevel: '1'
           octaneUrl: 'https://almoctane-eur.saas.microfocus.com'
           octaneSharedSpace: 646003
           octaneWorkspace:   1002
@@ -38,7 +38,7 @@ jobs:
           octaneClientSecret: ${{secrets.ALM_OCTANE_CLIENT_SECRET}}
           githubToken: ${{secrets.GITHUB_TOKEN}}
 
-          serverBaseUrl: "https://github.com/medamineguermezi150-cloud/firstProject"
+          serverBaseUrl: "https://github.com"
           
           pipelineNamePattern: '${workflow_name}'
          

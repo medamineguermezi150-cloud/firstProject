@@ -23,6 +23,10 @@ jobs:
     - name: Log workflow execution parameters
       run: |
         echo "execution_parameter:: $(echo '${{ toJson(github.event.inputs) }}' | jq -c .)"
+    - name: List Generated Reports
+      run: |
+        echo "Checking for JUnit XML files..."
+        find target -name "*.xml"
         
     - name: Upload Karate Reports
       if: always() 
